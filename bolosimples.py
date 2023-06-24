@@ -2,7 +2,7 @@ from bolo import Bolo
 from formato import IFormato
 
 class BoloSimples(Bolo):
-    def __init__(self, codigo: int, custo: float, semLactose: bool, formato: IFormato = None): #Pq dois construtores? não pode só colocar None se não passar nada é simples?
+    def __init__(self, codigo: int, custo: float, semLactose = None, formato: IFormato = None): #Pq dois construtores? não pode só colocar None se não passar nada é simples?
         super().__init__(codigo, custo , formato)
         self._semLactose = semLactose
     
@@ -15,7 +15,7 @@ class BoloSimples(Bolo):
         self._semLactose = valor
 
     def tipoBolo(self): #colocar o acrescimo de 35 reais aqui? 
-        if self.semLactose == True:
+        if self.semLactose == self.semLactose:
             return True
         else:
             return False 

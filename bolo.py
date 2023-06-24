@@ -7,12 +7,7 @@ class Bolo(IBolo, ABC): #classe abstrata. E só tem metodos concretos?
         self._codigo = codigo 
         self._custo = custo
         self._formato = formato
-    
-    def preco(self) -> float:  #esse metodo está definido na Ibolo
-        pass
-    
-    def area(self) -> float:
-        return 40 #retornei um bvalor qualquer para testar 
+
 
     @property
     def codigo(self) -> int:
