@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class IBolo(ABC):
+class IBolo(ABC): #só tem 1 metodo fazer o calculo 
 
     @abstractmethod
     def preco(self) -> float:

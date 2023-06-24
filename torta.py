@@ -1,8 +1,9 @@
 from bolo import Bolo
+from formato import IFormato
 
 class Torta(Bolo):
-    def __init__(self, custo: float, recheio: bool, cobertura: bool):
-        super().__init__(custo)
+    def __init__(self, codigo: int, custo: float, recheio: bool, cobertura: bool, formato: IFormato = None):
+        super().__init__(codigo, custo , formato)
         self._recheio = recheio
         self._cobertura = cobertura
 
@@ -22,7 +23,7 @@ class Torta(Bolo):
     def cobertura(self, valor):
         self._cobertura = valor
     
-    def preco():
+    def preco(): # recheio e cobertura aumenta o preço = custo*area
         pass
      
     def __str__(self) -> str:

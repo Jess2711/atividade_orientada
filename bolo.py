@@ -1,16 +1,22 @@
+from abc import ABC
 from formato import IFormato
 from ibolo import IBolo
 
-class Bolo(IFormato, IBolo): #classe abstrata
-    def __init__(self, custo: float, formato: IFormato):
-        self._codigo = __class__.geracodigo() #o codigo não é randomico ? “Bolo já cadastrado.” caso
-#exista na prateleira pelo menos um bolo com o mesmo código.
+class Bolo(IBolo, ABC): #classe abstrata. E só tem metodos concretos?
+    def __init__(self, codigo: int, custo: float, formato: IFormato = None):
+        self._codigo = codigo 
         self._custo = custo
         self._formato = formato
+    
+    def preco(self) -> float:  #esse metodo está definido na Ibolo
+        pass
+    
+    def area(self) -> float:
+        return 40 #retornei um bvalor qualquer para testar 
 
     @property
     def codigo(self) -> int:
-        return self._custo
+        return self._codigo
     
     @codigo.setter
     def codigo(self, valor):
@@ -27,7 +33,7 @@ class Bolo(IFormato, IBolo): #classe abstrata
 
     @property
     def formato(self) -> IFormato:
-        return self._custo
+        return self._formato
     
     @formato.setter
     def formato(self, valor):

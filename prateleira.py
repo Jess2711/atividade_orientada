@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from ibolo import IBolo
 
-class IPrateleira(ABC):
+class IPrateleira(ABC): #esta faltando outros os demais metodos
 
     @abstractmethod
     def buscar(self) -> int:

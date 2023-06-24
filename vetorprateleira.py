@@ -9,5 +9,14 @@ class VetorPrateleira(IPrateleira, IBolo):
         self._qtdbolo = qtdbolo
     
     #def lista_prateleira(self, bolos: Type[IBolo]):
-    #def inserir():
-        
+    def inserir(self):
+        pass
+    
+    def remover(self): #int posicao
+        pass
+
+    def remover(self): #IBolo bolo
+        pass
+ 
+    def listar(self):
+        pass
