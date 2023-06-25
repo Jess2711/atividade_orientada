@@ -1,14 +1,27 @@
 from abc import ABC
-from formato import IFormato
+from iformato import IFormato
 from ibolo import IBolo
 
-class Bolo(IBolo, ABC): #classe abstrata. E só tem metodos concretos?
-    def __init__(self, codigo: int, custo: float, formato: IFormato = None):
+class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
+    def __init__(self, codigo: int, custo: float, formato: IFormato):
         self._codigo = codigo 
         self._custo = custo
         self._formato = formato
+        IBolo.register(Bolo)
+        
 
-
+    #isinstance metodo para reconhecer o objeto, se for uma instancia de Bolo e tiver o msm codigo retornará true se não false
+    def equals(self, obj):  
+        if (isinstance(obj, Bolo)):
+            return self.codigo == obj.codigo
+        return False
+    
+    #metodo do contrato
+    def preco(self):
+        pass
+    def area(self):
+        return 3 #retornei 5 para teste
+    
     @property
     def codigo(self) -> int:
         return self._codigo
@@ -16,7 +29,6 @@ class Bolo(IBolo, ABC): #classe abstrata. E só tem metodos concretos?
     @codigo.setter
     def codigo(self, valor):
         self._codigo = valor
-
 
     @property
     def custo(self) -> float:
@@ -35,7 +47,7 @@ class Bolo(IBolo, ABC): #classe abstrata. E só tem metodos concretos?
         self._formato = valor
 
     def __str__(self) -> str:
-        return f'custo: n\ {self.custo} codigo: n\ {self.codigo} formato: n\ {self.formato}'
+        return f'Código: {self.codigo}\nCusto: {self.custo}\nFormato do Bolo: {self.formato}'
     
 
     

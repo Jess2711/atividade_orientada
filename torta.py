@@ -1,8 +1,8 @@
 from bolo import Bolo
-from formato import IFormato
+from iformato import IFormato
 
 class Torta(Bolo):
-    def __init__(self, codigo: int, custo: float, recheio: bool, cobertura: bool, formato: IFormato = None):
+    def __init__(self, codigo: int, custo: float, recheio: bool = None, cobertura: bool = None, formato: IFormato = None):
         super().__init__(codigo, custo , formato)
         self._recheio = recheio
         self._cobertura = cobertura
@@ -27,4 +27,4 @@ class Torta(Bolo):
         pass
      
     def __str__(self) -> str:
-        return super().__str__()
+        return f'Recheio {self.recheio}\n Cobertura {self.cobertura}\n' + super().__str__()
