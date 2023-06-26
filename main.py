@@ -1,16 +1,16 @@
-#from bolo import Bolo
-#from iformato import IFormato
-#from ibolo import IBolo
+from bolo import Bolo
+from iformato import IFormato
+from ibolo import IBolo
 from bolosimples import BoloSimples
-#from vetorprateleira import VetorPrateleira
-#from iprateleira import IPrateleira
+from vetorprateleira import VetorPrateleira
+from iprateleira import IPrateleira
 
 
 primeiro_bolo= BoloSimples('45', 10, 'Quadrado', False) 
 primeiro_bolo.preco()
 print(primeiro_bolo)
 
-'''
+
 
 prateleira1 = VetorPrateleira(1)
 #prateleira.lista_prateleira(IBolo)
@@ -26,4 +26,3 @@ print(prateleira2)
 prateleira3 = VetorPrateleira(1)
 prateleira3.inserir()
 print(prateleira3)
-'''

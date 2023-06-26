@@ -2,7 +2,7 @@ from bolo import Bolo
 from iformato import IFormato
 
 class BoloSimples(Bolo):
-    def __init__(self, codigo: int, custo: float,  formato: IFormato = None, semLactose: bool = None): #Pq dois construtores? não pode só colocar None se não passar nada é simples?
+    def __init__(self, codigo: int, custo: float, semLactose: bool = None,  formato: IFormato = None): #Pq dois construtores? não pode só colocar None se não passar nada é simples?
         super().__init__(codigo, custo , formato)
         self._semLactose = semLactose
     

@@ -1,11 +1,12 @@
 from typing import Type
 from iprateleira import IPrateleira
 from ibolo import IBolo
+from bolosimples import BoloSimples
 
 
 class VetorPrateleira():
     def __init__(self, qtdbolo: int ):
-        self.lista_prateleira()
+        self.prateleira_bolos = []
         self._qtdbolo = qtdbolo
         IPrateleira.register(VetorPrateleira)
 
@@ -30,8 +31,9 @@ class VetorPrateleira():
         self.prateleira_bolos = [] #tamanho estabelecido pelo usuario
         print(self.prateleira_bolos)
         
-    def inserir(self):    #O método deverá lançar uma mensagem “Bolo já cadastrado.” caso exista na prateleira pelo menos um bolo com o mesmo código. 
-        novo_bolo = IBolo()
+    def inserir(self, obj_bolo):    #O método deverá lançar uma mensagem “Bolo já cadastrado.” caso exista na prateleira pelo menos um bolo com o mesmo código. 
+        for bolo in self.prateleira_bolos  #percorrer a lista de bolos dentro de for jogar o equals, já existe o bolo
+        
         self.prateleira_bolos.append(novo_bolo)
         print(novo_bolo)
         print(self.prateleira_bolos)

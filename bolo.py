@@ -3,7 +3,7 @@ from iformato import IFormato
 from ibolo import IBolo
 
 class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
-    def __init__(self, codigo: int, custo: float, formato: IFormato):
+    def __init__(self, codigo: int, custo: float , formato: IFormato = None):
         self._codigo = codigo 
         self._custo = custo
         self._formato = formato
@@ -19,8 +19,9 @@ class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
     #metodo do contrato
     def preco(self):
         pass
+
     def area(self):
-        return 3 #retornei 5 para teste
+        return 3 #retornei 3 para teste
     
     @property
     def codigo(self) -> int:
