@@ -28,7 +28,7 @@ class IPrateleira(ABC):
         pass
 
     @abstractmethod
-    def remover(self) -> int: #remover(int)
+    def remover_posicao(self) -> int: #remover(int)
         pass
 
     @abstractmethod

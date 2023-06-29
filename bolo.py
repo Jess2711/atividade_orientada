@@ -3,8 +3,9 @@ from iformato import IFormato
 from ibolo import IBolo
 
 class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
-    def __init__(self, codigo: int, custo: float , formato: IFormato = None):
-        self._codigo = codigo 
+    cont=0
+    def __init__(self, custo: float , formato: IFormato = None):
+        self._codigo = __class__.gera_codigo()
         self._custo = custo
         self._formato = formato
         IBolo.register(Bolo)
@@ -22,6 +23,14 @@ class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
 
     def area(self):
         return 3 #retornei 3 para teste
+    
+    @classmethod
+    def gera_codigo(cls):
+        cls.cont+=1
+        return str(cls.cont)
+
+    
+    #metodos acessadores e modificadores:
     
     @property
     def codigo(self) -> int:
@@ -46,6 +55,7 @@ class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
     @formato.setter
     def formato(self, valor):
         self._formato = valor
+
 
     def __str__(self) -> str:
         return f'Código: {self.codigo}\nCusto: {self.custo}\nFormato do Bolo: {self.formato}'
