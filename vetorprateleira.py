@@ -3,6 +3,7 @@ from iprateleira import IPrateleira
 from ibolo import IBolo
 from bolosimples import BoloSimples
 from bolo import Bolo
+from torta import Torta
 
 
 class VetorPrateleira():
@@ -28,15 +29,18 @@ class VetorPrateleira():
     def tamanho(self, valor):
         self._tamanho = valor
 
+    #essa função trouxe da classe bolo para tentar fazer funcionar na função inserir
+    '''
     def equals(self, obj):  
         if (isinstance(obj, Bolo)):
-            return self.codigo == obj.codigo
-        return False    
+           return self.codigo == obj.codigo
+        return False 
+    '''   
     
-        
-    def inserir(self, bolo: IBolo) -> bool:    #O método deverá lançar uma mensagem “Bolo já cadastrado.” caso exista na prateleira pelo menos um bolo com o mesmo código. 
-        #if (isinstance(obj_bolo, IBolo)):
-        for obj_bolo in self.prateleira_bolos:  #percorrer a lista de bolos dentro de for jogar o equals, já existe o bolo
+    #O método deverá lançar uma mensagem “Bolo já cadastrado.” caso exista na prateleira pelo menos um bolo com o mesmo código, método da interface.    
+    def inserir(self, bolo: IBolo) -> bool:  
+        #percorrer a lista de bolos dentro de for (não deu certo com a função equals, se já existe não insere)
+        for obj_bolo in self.prateleira_bolos:  
             if obj_bolo.codigo == bolo.codigo:
                 print('Bolo já cadastrado')
                 return
@@ -46,13 +50,7 @@ class VetorPrateleira():
         else:
             print('Prateleira cheia')
         print(self.prateleira_bolos)
-        #print(type(self.prateleira_bolos))
-    
-
-        #self.prateleira_bolos.append(novo_bolo)
-        #print(novo_bolo)
-        #print(self.prateleira_bolos)
-    
+        
     def remover(self, bolo) -> IBolo: #IBolo bolo
         if bolo in self.prateleira_bolos:
             self.prateleira_bolos.remove(bolo)
@@ -61,25 +59,65 @@ class VetorPrateleira():
             print('Bolo inexistente')
 
     def remover_posicao(self, posicao) -> int: #IBolo bolo
-        if self.prateleira_bolos[posicao] in self.prateleira_bolos:
+        if posicao<len(self.prateleira_bolos) and self.prateleira_bolos[posicao] in self.prateleira_bolos:
             del self.prateleira_bolos[posicao]
             print('bolo removido da posição:', posicao)
         else: 
             print('Bolo inexistente')
-
     '''
-    def remover(self, posicao) -> int: #int posicao
-        for obj_bolo in self.prateleira_bolos:
-            if self.prateleira_bolos(obj_bolo):
-                del self.prateleira_bolos[posicao]
-                print(posicao)
-            else: 
-                print('Bolo inexistente')
+    Codificar o método listar(char tipoDoBolo) responsável por retornar uma lista de
+    bolos do tipo especificado. Caso o tipoDoBolo seja “S”, a lista deverá conter apenas
+    exemplares de bolos do tipo BoloSimples. Caso o tipoDoBolo seja “T”, a lista deverá
+    conter apenas exemplares de bolos do tipo Torta.
     '''
+    
+    #Jéssica
+    def listar_tipo_bolo(self, tipo:str):
+        lista_tipo = []
+        if tipo == 'S':
+            for bolo in self.prateleira_bolos:  
+                if (isinstance(bolo, BoloSimples)):
+                    lista_tipo.append(bolo)
+                    #print(lista_tipo)
+        elif tipo == 'T':
+            for bolo in self.prateleira_bolos:  
+                if (isinstance(bolo, Torta)):
+                    lista_tipo.append(bolo)
+                    #print(lista_tipo)
+        else:
+            return 'Digite um tipo existente'
+        return lista_tipo
 
- 
-    def listar_tipo_bolo(self):
-        pass
+    
+
+    '''     
+    def listar(self, tipo_bolo):
+        torta = []
+        bolo_simples = []
+        for valor in (self.prateleira_bolos):
+            if (isinstance(valor, Torta)): #Alterar para reconhecer o objeto
+                torta.append(valor)
+            else:
+                bolo_simples.append(valor)
+        if tipo_bolo.upper() == 'T':
+            return torta
+        return bolo_simples
+    '''
+            
+
+        
+    '''
+        lista_tipo = []
+        if tipoBolo == 'S':
+            lista_tipo.append(BoloSimples)
+            return lista_tipo
+        elif tipoBolo == 'T':
+            lista_tipo.append(Torta)
+            return lista_tipo
+        else:
+            return 'Digite um tipo existente'
+    '''  
+      
 
     #os metodos do contrato
 
@@ -93,15 +131,6 @@ class VetorPrateleira():
         pass
     
     def existe(self) -> bool: #existe(IBolo)
-        pass
-    
-    #def inserir(self) -> bool: #inserir(IBolo)
-        #pass
-
-    #def remover(self) -> IBolo: #remover(IBolo)
-        pass
-
-    #def remover(self) -> int: #remover(int)
         pass
 
     def consultar(self) -> IBolo: #consultar(IBolo)

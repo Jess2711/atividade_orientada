@@ -2,7 +2,7 @@ from bolo import Bolo
 from iformato import IFormato
 
 class BoloSimples(Bolo):
-    def __init__(self, custo: float, semLactose: bool = None,  formato: IFormato = None): #Pq dois construtores? não pode só colocar None se não passar nada é simples?
+    def __init__(self, custo: float, semLactose: bool = False,  formato: IFormato = None): 
         super().__init__(custo , formato)
         self._semLactose = semLactose
     
@@ -13,16 +13,16 @@ class BoloSimples(Bolo):
     @semLactose.setter
     def semLactose(self, valor):
         self._semLactose = valor
-
-    def tipoBolo(self): #colocar o acrescimo de 35 reais aqui? 
-        if self.semLactose == self.semLactose:
-            return True
+ 
+    #implementação do metodo da interface Ibolo
+    def preco(self):      
+        if self.semLactose == True:
+            adicional = 35
+            self.preco_bolo = self.custo*self.area() + adicional
+            return self.preco_bolo
         else:
-            return False 
-    
-    def preco(self):      #mano isso aqui vem da classe abstrata bolo ou da interface Ibolo?
-        self.preco_bolo = self.custo*self.area()
-        return self.preco_bolo
+            self.preco_bolo = self.custo*self.area()
+            return self.preco_bolo
      
     def __str__(self) -> str:
-        return super().__str__() + f'\nLactose: {self.semLactose}\nPreço do Bolo informado: {self.preco_bolo}'
+        return f'Tipo do Bolo: Bolo Simples\n' + super().__str__() + f'\nLactose: {self.semLactose}\nPreço do Bolo informado: {self.preco_bolo}'

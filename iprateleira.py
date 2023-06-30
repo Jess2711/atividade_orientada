@@ -36,7 +36,7 @@ class IPrateleira(ABC):
         pass
 
     @abstractmethod
-    def listar(self) -> IBolo: #IBolo[]
+    def listar_tipo_bolo(self) -> IBolo: #IBolo[]
         pass
 
     @abstractmethod
