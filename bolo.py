@@ -2,7 +2,8 @@ from abc import ABC
 from iformato import IFormato
 from ibolo import IBolo
 
-class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
+#classe abstrata que implemanta a interface IBolo e é superclasse das classe boloSimples e Torta
+class Bolo(ABC): 
     cont=0
     def __init__(self, custo: float , formato: IFormato = None):
         self._codigo = __class__.gera_codigo()
@@ -17,13 +18,14 @@ class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
             return self.codigo == obj.codigo
         return False
     
-    #metodo do contrato
+    #método do contrato implementado na subclasses de Bolo
     def preco(self):
         pass
-
+    #método que será implementado pelo resto da equipe
     def area(self):
-        return 3 #retornei 3 para teste
+        return 3 #retornei 3 apenas para testar o código
     
+    #método de classe para gerar o código do bolo
     @classmethod
     def gera_codigo(cls):
         cls.cont+=1
@@ -31,7 +33,6 @@ class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
 
     
     #metodos acessadores e modificadores:
-    
     @property
     def codigo(self) -> int:
         return self._codigo
@@ -56,7 +57,7 @@ class Bolo(ABC): #classe abstrata que implemanta a interface IBolo
     def formato(self, valor):
         self._formato = valor
 
-
+    #imprime as informações do bolo
     def __str__(self) -> str:
         return f'Código: {self.codigo}\nCusto: {self.custo}\nFormato do Bolo: {self.formato}'
     

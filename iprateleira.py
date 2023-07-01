@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from ibolo import IBolo
 
+#essa classe abstrata por convenção é uma interface os métodos definidos nela serão implementados,
+#quando necessário, na classe concreta que a implementar.
 class IPrateleira(ABC): 
 
     @abstractmethod

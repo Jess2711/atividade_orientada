@@ -19,11 +19,11 @@ bolo3= BoloSimples(20, False, 'Retangulo')
 bolo3.preco()
 print(bolo3)
 
-torta1 = Torta(10) 
+torta1 = Torta(10, '', '', 'Quadrada') 
 torta1.preco()
 print(torta1)
 
-torta2= Torta(15) 
+torta2= Torta(15, '','','') 
 torta2.preco()
 print(torta2)
 
@@ -31,16 +31,20 @@ torta3= Torta(10, False,'','Circular')
 torta3.preco()
 print(torta3)
 
+torta4= Torta(15, '',False,'Circular') 
+torta4.preco()
+print(torta4)
+
 
 
 
 prateleira = VetorPrateleira(5)
 prateleira.listar_tipo_bolo('S')
 prateleira.listar_tipo_bolo('T')
-torta1 = (isinstance(torta1, Torta))
+#torta1 = (isinstance(torta1, Torta))
 print(prateleira)
-print(torta1)
-'''
+#print(torta1)
+
 prateleira.inserir(bolo1)
 print(prateleira)
 prateleira.inserir(bolo2)
@@ -55,25 +59,14 @@ prateleira.inserir(torta3)
 print(prateleira)
 prateleira.inserir(bolo3)
 print(prateleira)
+prateleira.listar_tipo_bolo('T')
+print(prateleira)
 prateleira.remover(bolo1)
 print(prateleira)
 prateleira.remover_posicao(2)
 print(prateleira)
-'''
 
 
-
-
-
-
-
-
-
-'''
-segundo_bolo= BoloSimples(10, False, 'Quadrado') 
-segundo_bolo.preco()
-print(segundo_bolo)
-'''
 
 
 
