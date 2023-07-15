@@ -38,7 +38,22 @@ class VetorPrateleira():
     '''   
     #implemtando os métodos do contrato:
     #O método deverá lançar uma mensagem “Bolo já cadastrado.” caso exista na prateleira pelo menos um bolo com 
-    #o mesmo código, método da interface.    
+    #o mesmo código, método da interface. 
+
+
+    def inserir(self, objeto) -> bool:
+        for obj_bolo in self._prateleira_bolos:
+            if obj_bolo.equals(objeto):
+              print('Bolo já Cadastrado')
+              return
+        if len(self._prateleira_bolos) < self.tamanho:
+            self._prateleira_bolos.append(objeto)
+            print('Bolo inserido')
+        else:
+            print('Prateleira cheia')
+        #print(self._prateleira_bolos)
+
+    '''
     def inserir(self, bolo: IBolo) -> bool:  
         #percorrer a lista de bolos dentro de for (não deu certo com a função equals, se já existe não insere)
         for obj_bolo in self._prateleira_bolos:  
@@ -51,6 +66,7 @@ class VetorPrateleira():
         else:
             print('Prateleira cheia')
         print(self._prateleira_bolos)
+        '''
 
     #remove um bolo específico da prateleira   
     def remover(self, bolo) -> IBolo: #IBolo bolo
